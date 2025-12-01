@@ -1,0 +1,198 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url('images/background.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: "Cinzel", serif;
+}
+
+.volta{
+    position: absolute;
+    border-radius: 0%;
+    top: 1%;
+    left: 0.5%;
+    font-size: 200%;
+    padding: 0.5%;
+    letter-spacing: normal;
+    border: solid 3px red;
+    color: red;
+    font-weight: bold;
+    background-color: beige;
+    text-decoration: none;
+}
+
+#container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flip-horizontal-right:hover .flip-card-inner{
+    transform: rotateY(180deg);
+}
+
+
+.flip-horizontal-right .flip-card-back{
+    transform: rotateY(180deg);
+}
+
+
+.flip-horizontal-left:hover .flip-card-inner {
+    transform: rotateY(-180deg);
+}
+
+
+.flip-horizontal-left .flip-card-back {
+    transform: rotateY(-180deg);
+}
+.flip-vertical-up:hover .flip-card-inner {
+    transform: rotateX(180deg);
+}
+
+
+.flip-vertical-up .flip-card-back {
+    transform: rotateX(180deg);
+}
+
+
+.flip-vertical-down:hover .flip-card-inner {
+    transform: rotateX(-180deg);
+}
+
+
+.flip-vertical-down .flip-card-back {
+    transform: rotateX(-180deg);
+}
+
+.flip-card {
+    background-color: transparent;
+    width: 140px;
+    height: 200px;
+    margin-right: 3%;
+    flex-shrink: 0;
+    perspective: 1000px;
+    transition: transform 0.5s ease;
+}
+
+.flip-card:hover{
+    transform: translateY(-15px);
+}
+
+.flip-card.flip-horizontal-left.flip-card-op{
+    transition: transform 0.5s ease;
+}
+.flip-card.flip-horizontal-left.flip-card-op:hover{
+    transform: translateY(15px);
+}
+
+.flip-card.flip-card-op{
+    transition: transform 0.5s ease;
+}
+.flip-card.flip-card-op:hover{
+    transform: translateY(15px);
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 1s;
+    transform-style: preserve-3d;
+}
+
+.flip-card-front,
+.flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+}
+
+.flip-card-front img,
+.flip-card-back img {
+    width: 100%;
+    height: 105%;
+    border-radius: 15px;
+    border: solid 4px black;
+    object-fit: cover;
+}
+
+#minhas{
+    position: absolute;
+    bottom: 4%;
+    left: 30%;
+    display: flex;
+    white-space: nowrap;
+}
+
+#bot{
+    position: absolute;
+    top: 1%;
+    left: 30%;
+    display: flex;
+    white-space: nowrap;
+}
+
+#mais{
+    position: absolute;
+    bottom: 31%;
+    left: 65.8%;
+    font-size: 225%;
+    padding: 3%;
+    margin-right: 2%;
+    font-family: "Cinzel", serif;
+    border: solid 5px green;
+    border-radius: 50%;
+    color: green;
+    font-weight: bold;
+    background-color: beige;
+    cursor: pointer;
+    transition: 0.5s ease;
+}
+
+#mais:hover{
+    border-radius: 12%;
+    text-decoration: underline;
+}
+
+#mantem{
+    position: absolute;
+    bottom: 51%;
+    left: 65%;
+    font-size: 200%;
+    padding: 3%;
+    margin-right: 2%;
+    font-family: "Cinzel", serif;
+    border: solid 5px green;
+    border-radius: 50%;
+    color: green;
+    font-weight: bold;
+    background-color: beige;
+    cursor: pointer;
+    transition: 0.5s ease;
+}
+
+#mantem:hover{
+    border-radius: 12%;
+    text-decoration: underline;
+}
+
+#monte{
+    position: absolute;
+    top: 20%;
+    left: 5%;
+    width: 140px;
+    height: 200px;
+}
+
+#monte img{
+    width: 240%;
+    height: 252%;
+    border-radius: 35px;
+    border: solid 4px black;
+    object-fit: cover;
+}
+

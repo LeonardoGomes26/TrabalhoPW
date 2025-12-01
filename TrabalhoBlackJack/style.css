@@ -54,10 +54,11 @@ a{
 
 #reg{
     position: absolute;
+    font-size: 60px;
     border: solid 3px red;
-    top: 35%;
-    right: 70%;
-    transform: rotate(30deg);
+    top: 46%;
+    left: 24.7%;
+    padding: 4.8%;
     transition: 0.5s ease;
 }
 
@@ -68,29 +69,17 @@ a{
 }
 
 #jog{
+    position: absolute;
+    top: 46%;
+    left: 45.6%;
+    font-size: 60px;
     border: solid 3px red;
     margin: 0% 6% 0% 6%;
     padding: 5%;
     transition: 0.5s ease;
-    margin: 0% 0% 7.5% 0%;
 }
 
 #jog:hover{
-    border-radius: 12%;
-    background-color: lightgoldenrodyellow;
-    text-decoration: underline;
-}
-
-#op{
-    position: absolute;
-    border: solid 3px red;
-    top: 35%;
-    left: 70%;
-    transform: rotate(-30deg);
-    transition: 0.5s ease;
-}
-
-#op:hover{
     border-radius: 12%;
     background-color: lightgoldenrodyellow;
     text-decoration: underline;
@@ -105,8 +94,14 @@ a{
 }
 
 .imaDev{
-    width: 50%;
-    height: 50%;
+    width: 30%;
+    height: 30%;
+    border: solid 3px white;
+}
+
+h2{
+    color: white;
+    font-size: 40px;
 }
 
 .volta{
@@ -117,4 +112,15 @@ a{
     font-size: 200%;
     padding: 0.5%;
     letter-spacing: normal;
+    border: solid 3px red;
+}
+
+#regras h2{
+    margin: 2% 10% 2% 10%;
+    text-align: center;
+}
+
+#bomJ{
+    font-size: 80px;
+    font-weight: bold;
 }

@@ -3,10 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../style.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="../jogo.css">
+    <title>BlackJack</title>
 </head>
 <body>
-    
+    <a href="../Main.html" class="volta">Voltar</a>
+    <div id="monte">
+        <img src="../images/fundoB.png">
+    </div>
+    <div id="container">
+        <div id="minhas">
+            <div class="flip-card flip-horizontal-left">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="../images/fundoB.png">
+                    </div>
+                    <div class="flip-card-back">
+                        <img src="../images/naosei.png">
+                    </div>
+                </div>
+            </div>
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="../images/8.png">
+                    </div>
+                </div>
+            </div>
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="../images/4.png">
+                    </div>
+                </div>
+            </div>
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="../images/4.png">
+                    </div>
+                </div>
+            </div>
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="../images/4.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="bot">
+            <div class="flip-card flip-horizontal-left flip-card-op">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="../images/fundoB.png">
+                    </div>
+                    <div class="flip-card-back">
+                        <img src="../images/naosei.png">
+                    </div>
+                </div>
+            </div>
+            <div class="flip-card flip-card-op">
+                <div class="flip-card-front">
+                    <img src="../images/7.png">
+                </div>
+            </div>
+            <div class="flip-card flip-card-op">
+                    <div class="flip-card-front">
+                        <img src="../images/6.png">
+                    </div>
+            </div>
+            <div class="flip-card flip-card-op">
+                    <div class="flip-card-front">
+                        <img src="../images/6.png">
+                    </div>
+            </div>
+            <div class="flip-card flip-card-op">
+                    <div class="flip-card-front">
+                        <img src="../images/6.png">
+                    </div>
+            </div>
+        </div>
+    </div>
+    <button id="mais">Pedir Carta</button>
+    <button id="mantem">Manter Cartas</button>
+    <script src="../trab.js"></script>
 </body>
 </html>
