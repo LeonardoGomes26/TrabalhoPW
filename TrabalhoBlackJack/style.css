@@ -8,12 +8,16 @@ body{
     justify-items: center;
     flex-direction: column;
     background-color: #057b3c;
+    background-image: url('images/backJogo.png');
+    background-repeat: no-repeat;
+    background-size: cover;
     font-family: "Cinzel", serif;
 }
 
 h1{  
     margin: 1% 0% 5% 0%;
-    background-color: beige;
+    background-color: beige ;
+    /* background-color: #faeeca; */
     border: solid 5px red;
     color: red;
     padding: 4%;
