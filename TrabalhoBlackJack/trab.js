@@ -1,5 +1,8 @@
-var cardsUsu = [(Math.floor(Math.random()*10)+1), (Math.floor(Math.random()*10)+1)]
-var cardsBot = [(Math.floor(Math.random()*10)+1), (Math.floor(Math.random()*10)+1)]
+document.getElementById("mais").addEventListener("click", EuComproCarta);
+
+
+// var cardsUsu; AJEITAR PARA ARMAZENAR IFORMAÇÂO
+// var cardsBot;
 var totalU = 0
 var totalB = 0
 var indU = 2
@@ -7,40 +10,46 @@ var indB = 2
 var doisManteve = 0
 var primeiraCartaBot = true;
 
-document.getElementById("mais").addEventListener("click", animarCartaMinha);
-document.getElementById("mantem").addEventListener("click", animarCartaParaBot);
 
 function iniciarJogo(){
     setTimeout(()=>{
-        animarCartaMinha();
+        EuComproCarta();
     }, 200);
 
-    setTimeout(()=>{
-        animarCartaParaBot();
-    }, 200);
 
     setTimeout(()=>{
-        animarCartaMinha();
+        BOTCompraCarta();
+    }, 200);
+
+
+    setTimeout(()=>{
+        EuComproCarta();
     }, 800);
 
+
     setTimeout(()=>{
-        animarCartaParaBot();
+        BOTCompraCarta();
     }, 800);
 }
 
-document.getElementById("mais").addEventListener("click", function(){
-    
 
-});
-
-function gerarCartaAleatoria() {
+function gerarCartaAleatoriaBot() {
     const alea = Math.floor(Math.random() * 10) + 1;
+    totalB += alea;
     return `../images/${alea}.png`;
 }
 
-function animarCartaMinha() {
 
-    const novasrc = gerarCartaAleatoria();
+function gerarCartaAleatoriaUsu() {
+    const alea = Math.floor(Math.random() * 10) + 1;
+    totalU += alea;
+    return `../images/${alea}.png`;
+}
+
+
+function EuComproCarta() {
+
+    const novasrc = gerarCartaAleatoriaUsu();
 
     const monte = document.querySelector("#monte img");
     const posMonte = monte.getBoundingClientRect();
@@ -59,11 +68,7 @@ function animarCartaMinha() {
 
     void carta.offsetWidth;
 
-    carta.style.transform = `
-        translate(${posMinhas.left - posMonte.left}px,
-                  ${posMinhas.top - posMonte.top}px)
-        rotateY(180deg)
-    `;
+    carta.style.transform = `translate(${posMinhas.left - posMonte.left}px, ${posMinhas.top - posMonte.top}px) rotateY(180deg)`;
 
     setTimeout(() => {
         carta.remove();
@@ -71,9 +76,10 @@ function animarCartaMinha() {
     }, 700);
 }
 
-function animarCartaParaBot() {
 
-    const novasrc = gerarCartaAleatoria();
+function BOTCompraCarta() {
+    //Animação
+    const novasrc = gerarCartaAleatoriaBot();
 
     const monte = document.querySelector("#monte img");
     const posMonte = monte.getBoundingClientRect();
@@ -91,17 +97,19 @@ function animarCartaParaBot() {
     document.body.appendChild(carta);
     void carta.offsetWidth;
 
-    carta.style.transform = `
-        translate(${posBot.left - posMonte.left}px,
-                  ${posBot.top - posMonte.top}px)
-        rotateY(180deg)
-    `;
+    carta.style.transform = `translate(${posBot.left - posMonte.left}px, ${posBot.top - posMonte.top}px) rotateY(180deg)`;
 
     setTimeout(() => {
         carta.remove();
         adicionarCartaBot(novasrc);
     }, 700);
+
+
+    //Funcionalidades do jogo
+    alert("O BOT comprou uma carta!");
+
 }
+
 
 function adicionarCartaReal(src) {
     const div = document.createElement("div");
@@ -118,6 +126,7 @@ function adicionarCartaReal(src) {
     document.querySelector("#minhas").appendChild(div);
 }
 
+
 function adicionarCartaBot(src) {
     const div = document.createElement("div");
     div.className = "flip-card flip-card-op";
@@ -126,10 +135,10 @@ function adicionarCartaBot(src) {
         div.innerHTML = `
         <div class="flip-card-inner">
             <div class="flip-card-front">
-                <img src="../images/fundoB.png"> <!-- verso da carta -->
+                <img src="../images/fundoB.png">
             </div>
             <div class="flip-card-back">
-                <img src="../images/naosei.png"> <!-- "?" -->
+                <img src="../images/naosei.png">
             </div>
         </div>
         `;
@@ -154,4 +163,30 @@ document.querySelector("#bot").addEventListener("click", (e) => {
     }
 });
 
+
+//Função pro jogo
+mantem.addEventListener("click", function(){
+    vezUsu = true;
+    if(manter == 0){
+        manter = 1;
+    }
+    else{
+        manter = 2;
+    }
+});
+
+
+
+var manter = 0;
+var vezUsu = true; //boolean
+var primeiraVez = true;
+
+
 window.addEventListener("load", iniciarJogo);
+
+if(vezUsu){
+    EuComproCarta();
+    vezUsu = false; 
+}else{
+    BOTCompraCarta();
+}
