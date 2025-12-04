@@ -1,5 +1,12 @@
 document.getElementById("mais").addEventListener("click", EuComproCarta);
-document.getElementById("mantem").addEventListener("click", BOTCompraCarta);
+document.getElementById("mantem").addEventListener("click", function () {
+    turno = "bot";
+    esconderBotoes();
+    setTimeout(BotCompra, 400);
+    doisManteve++;
+    if (doisManteve == 2)
+        fimDoJogo();
+});
 
 window.addEventListener("load", iniciarJogo);
 
@@ -8,6 +15,7 @@ var totalB = 0;
 var primeiraCartaBot = true;
 var primeiraVez = true;
 var turno = "usu";
+var doisManteve = 0;
 
 function iniciarJogo() {
     setTimeout(() => {
@@ -50,7 +58,6 @@ function adicionarCartaReal(src) {
             </div>
         </div>
     `;
-
     document.querySelector("#minhas").appendChild(div);
 };
 
@@ -79,7 +86,6 @@ function adicionarCartaBot(src) {
         </div>
         `;
     }
-
     document.querySelector("#bot").appendChild(div);
 };
 
@@ -189,6 +195,8 @@ function BOTCompraCarta() {
 
     if (totalB >= 21)
         fimDoJogo();
+    else if (doisManteve == 2)
+        fimDoJogo();
     else {
         turno = "jogador";
         mostrarBotoes();
@@ -206,6 +214,7 @@ function fimDoJogo() {
         else if (dif21B < dif21U) { alert(`Você venceu!!!\n\n\nDados do jogo:\n\nSua pontuação: ${totalU}\nPontuação do oponente: ${totalB}`); }
         else if (dif21B == dif21U) { alert(`Você venceu!!!\n\n\nDados do jogo:\n\nSua pontuação: ${totalU}\nPontuação do oponente: ${totalB}`); }
     }
+    esconderBotoes();
     JogarNovamente();
 };
 
@@ -237,11 +246,13 @@ function BotCompra() {
         return;
     else if (totalU < 16)
         BOTCompraCarta();
-    else if (totalU >= 16)
-        BOTCompraCarta();
-    else {
+    else if (totalB >= 16) {
         alert(`O jogo informa:\n\nO OPONENTE MANTEVE AS CARTAS!`);
         turno = "usu";
         mostrarBotoes();
+        doisManteve++;
+        console.log(doisManteve);
     }
+    else if (totalU >= 16)
+        BOTCompraCarta();
 };
