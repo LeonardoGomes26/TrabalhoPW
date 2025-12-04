@@ -37,7 +37,96 @@ function gerarCartaAleatoriaUsu() {
     const alea = Math.floor(Math.random() * 10) + 1;
     totalU += alea;
     return `../images/${alea}.png`;
+<<<<<<< HEAD
 };
+=======
+}
+
+
+function EuComproCarta() {
+
+    const novasrc = gerarCartaAleatoriaUsu();
+    
+    const monte = document.querySelector("#monte img");
+    const posMonte = monte.getBoundingClientRect();
+
+    const minhas = document.querySelector("#minhas");
+    const posMinhas = minhas.getBoundingClientRect();
+
+    const carta = document.createElement("img");
+    carta.src = "../images/fundoB.png";
+    carta.classList.add("carta-animada");
+
+    carta.style.left = posMonte.left + "px";
+    carta.style.top = posMonte.top + "px";
+
+    document.body.appendChild(carta);
+
+    void carta.offsetWidth;
+
+    carta.style.transform = `translate(${posMinhas.left - posMonte.left}px, ${posMinhas.top - posMonte.top}px) rotateY(180deg)`;
+
+    setTimeout(() => {
+        carta.remove();
+        adicionarCartaReal(novasrc);
+    }, 700);
+
+    if(totalU >= 21){
+        // function fim do jogo
+    }
+    else{
+        vezBot = true; 
+        vezUsu = false; 
+        manter = 0;
+    }
+
+}
+
+
+function BOTCompraCarta() {
+    //Animação
+    const novasrc = gerarCartaAleatoriaBot();
+
+    const monte = document.querySelector("#monte img");
+    const posMonte = monte.getBoundingClientRect();
+
+    const bot = document.querySelector("#bot");
+    const posBot = bot.getBoundingClientRect();
+
+    const carta = document.createElement("img");
+    carta.src = "../images/fundoB.png";  
+    carta.classList.add("carta-animada");
+
+    carta.style.left = posMonte.left + "px";
+    carta.style.top = posMonte.top + "px";
+
+    document.body.appendChild(carta);
+    void carta.offsetWidth;
+
+    carta.style.transform = `translate(${posBot.left - posMonte.left}px, ${posBot.top - posMonte.top}px) rotateY(180deg)`;
+
+    setTimeout(() => {
+        carta.remove();
+        adicionarCartaBot(novasrc);
+    }, 700);
+
+    
+    if(totalU >= 21){
+        // function fim do jogo
+    }
+    else{
+        vezBot = true; 
+        vezUsu = false; 
+        manter = 0;
+    }
+
+
+    //Funcionalidades do jogo
+    alert("O BOT comprou uma carta!");
+
+}
+
+>>>>>>> 6a8997147cfb4828ff8d79a35257f156911bf223
 
 function adicionarCartaReal(src) {
     const div = document.createElement("div");
@@ -101,6 +190,7 @@ function esconderBotoes() {
 };
 
 //Função pro jogo
+<<<<<<< HEAD
 function EuComproCarta() {
 
     const novasrc = gerarCartaAleatoriaUsu();
@@ -131,6 +221,11 @@ function EuComproCarta() {
     } else {
         pontoX = posMinhas.left;
         pontoY = posMinhas.top;
+=======
+mantem.addEventListener("click", function(){
+    if(manter == 0){
+        manter = 1;
+>>>>>>> 6a8997147cfb4828ff8d79a35257f156911bf223
     }
 
     carta.style.transform = `translate(${pontoX - posMonte.left}px, ${pontoY - posMonte.top}px) rotateY(180deg)`;
@@ -153,11 +248,18 @@ function BOTCompraCarta() {
     //Animação
     const novasrc = gerarCartaAleatoriaBot();
 
+<<<<<<< HEAD
     const monte = document.querySelector("#monte img");
     const posMonte = monte.getBoundingClientRect();
 
     const bot = document.querySelector("#bot");
     const posBot = bot.getBoundingClientRect();
+=======
+var vezBot = false
+var manter = 0;
+var vezUsu = true; //boolean
+var primeiraVez = true;
+>>>>>>> 6a8997147cfb4828ff8d79a35257f156911bf223
 
     const carta = document.createElement("img");
     carta.src = "../images/fundoB.png";
@@ -166,6 +268,7 @@ function BOTCompraCarta() {
     carta.style.left = posMonte.left + "px";
     carta.style.top = posMonte.top + "px";
 
+<<<<<<< HEAD
     document.body.appendChild(carta);
 
     void carta.offsetWidth;
@@ -245,3 +348,22 @@ function BotCompra() {
         mostrarBotoes();
     }
 };
+=======
+
+// Q porra é essa ???
+
+if(vezUsu){
+    EuComproCarta();
+    vezUsu = false; 
+}else{
+    BOTCompraCarta();
+}
+
+
+function BotCompra(vezUsu){
+if(vezUsu == false){
+    
+}
+}
+
+>>>>>>> 6a8997147cfb4828ff8d79a35257f156911bf223
