@@ -1,11 +1,14 @@
 document.getElementById("mais").addEventListener("click", EuComproCarta);
 document.getElementById("mantem").addEventListener("click", function () {
-    turno = "bot";
     esconderBotoes();
-    setTimeout(BotCompra, 400);
     doisManteve++;
-    if (doisManteve == 2)
+    if (doisManteve >= 2)
         fimDoJogo();
+    else{ 
+    turno = "bot";
+    setTimeout(BotCompra, 400);
+    }
+
 });
 
 window.addEventListener("load", iniciarJogo);
@@ -18,6 +21,7 @@ var turno = "usu";
 var doisManteve = 0;
 
 function iniciarJogo() {
+    
     setTimeout(() => {
         EuComproCarta();
     }, 200);
@@ -207,13 +211,57 @@ function fimDoJogo() {
     var dif21U = 21 - totalU;
     var dif21B = 21 - totalB;
 
-    if (totalU == 21) { alert(`Você venceu!!!\n\n\nDados do jogo:\n\nSua pontuação: ${totalU}\nPontuação do oponente: ${totalB}`); }
-    else {
-        if (totalB == 21) { alert(`O oponente venceu!\n\n\nDados do jogo:\n\nSua pontuação: ${totalU}\nPontuação do oponente: ${totalB}`); }
-        else if (dif21B > dif21U) { alert(`O oponente venceu!\n\n\nDados do jogo:\n\nSua pontuação: ${totalU}\nPontuação do oponente: ${totalB}`); }
-        else if (dif21B < dif21U) { alert(`Você venceu!!!\n\n\nDados do jogo:\n\nSua pontuação: ${totalU}\nPontuação do oponente: ${totalB}`); }
-        else if (dif21B == dif21U) { alert(`Você venceu!!!\n\n\nDados do jogo:\n\nSua pontuação: ${totalU}\nPontuação do oponente: ${totalB}`); }
+    if(totalU == 21){
+        alert(`Você venceu!!!\n\n\nDados do jogo:\n\nSua pontuação: ${totalU}\nPontuação do oponente: ${totalB}`);
     }
+    else if(totalU > 21 && totalB > totalU){
+        alert(`Você venceu!!!\n\n\nDados do jogo:\n\nSua pontuação: ${totalU}\nPontuação do oponente: ${totalB}`);
+    }
+    else if(totalB > 21 && totalB < totalU){
+        alert(`O oponente venceu!\n\n\nDados do jogo:\n\nSua pontuação: ${totalU}\nPontuação do oponente: ${totalB}`); 
+    }
+    else{
+        if(totalB == 21){
+            alert(`O oponente venceu!\n\n\nDados do jogo:\n\nSua pontuação: ${totalU}\nPontuação do oponente: ${totalB}`); 
+        }
+        else if(Math.abs(dif21B) < Math.abs(dif21U)){
+            if(dif21B > dif21U){
+                alert(`O oponente venceu!\n\n\nDados do jogo:\n\nSua pontuação: ${totalU}\nPontuação do oponente: ${totalB}`); 
+            }
+            else if(dif21U < 21 && dif21B > 21){
+                alert(`Você venceu!!!\n\n\nDados do jogo:\n\nSua pontuação: ${totalU}\nPontuação do oponente: ${totalB}`);
+            }
+            else if(dif21B < dif21U && dif21B < 0){
+                alert(`Você venceu!!!\n\n\nDados do jogo:\n\nSua pontuação: ${totalU}\nPontuação do oponente: ${totalB}`);
+            }
+            else{
+                alert(`O oponente venceu!\n\n\n1Dados do jogo:\n\nSua pontuação: ${totalU}\nPontuação do oponente: ${totalB}`); 
+            }
+        }
+        else if(Math.abs(dif21B) > Math.abs(dif21U)){
+            if(dif21B < dif21U){
+                alert(`Você venceu!!!\n\n\nDados do jogo:\n\nSua pontuação: ${totalU}\nPontuação do oponente: ${totalB}`);
+            }
+            else if(dif21B > 21 && dif21U <21){
+                alert(`Você venceu!!!\n\n\nDados do jogo:\n\nSua pontuação: ${totalU}\nPontuação do oponente: ${totalB}`);
+            }
+            else{
+                alert(`O oponente venceu!\n\n\nDados do jogo:\n\nSua pontuação: ${totalU}\nPontuação do oponente: ${totalB}`);    
+            }
+        }
+        else if(Math.abs(dif21B) == Math.abs(dif21U)){
+            
+            if(dif21B > dif21U){
+            alert(`O oponente venceu!\n\n\nDados do jogo:\n\nSua pontuação: ${totalU}\nPontuação do oponente: ${totalB}`);    
+            }
+            else{
+                alert(`Você venceu!!!\n\n\nDados do jogo:\n\nSua pontuação: ${totalU}\nPontuação do oponente: ${totalB}`);
+            }
+
+        }
+    }
+
+
     esconderBotoes();
     JogarNovamente();
 };
