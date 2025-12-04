@@ -50,7 +50,7 @@ function gerarCartaAleatoriaUsu() {
 function EuComproCarta() {
 
     const novasrc = gerarCartaAleatoriaUsu();
-
+    
     const monte = document.querySelector("#monte img");
     const posMonte = monte.getBoundingClientRect();
 
@@ -74,6 +74,16 @@ function EuComproCarta() {
         carta.remove();
         adicionarCartaReal(novasrc);
     }, 700);
+
+    if(totalU >= 21){
+        // function fim do jogo
+    }
+    else{
+        vezBot = true; 
+        vezUsu = false; 
+        manter = 0;
+    }
+
 }
 
 
@@ -103,6 +113,16 @@ function BOTCompraCarta() {
         carta.remove();
         adicionarCartaBot(novasrc);
     }, 700);
+
+    
+    if(totalU >= 21){
+        // function fim do jogo
+    }
+    else{
+        vezBot = true; 
+        vezUsu = false; 
+        manter = 0;
+    }
 
 
     //Funcionalidades do jogo
@@ -166,7 +186,6 @@ document.querySelector("#bot").addEventListener("click", (e) => {
 
 //Função pro jogo
 mantem.addEventListener("click", function(){
-    vezUsu = true;
     if(manter == 0){
         manter = 1;
     }
@@ -176,7 +195,7 @@ mantem.addEventListener("click", function(){
 });
 
 
-
+var vezBot = false
 var manter = 0;
 var vezUsu = true; //boolean
 var primeiraVez = true;
@@ -184,9 +203,20 @@ var primeiraVez = true;
 
 window.addEventListener("load", iniciarJogo);
 
+
+// Q porra é essa ???
+
 if(vezUsu){
     EuComproCarta();
     vezUsu = false; 
 }else{
     BOTCompraCarta();
 }
+
+
+function BotCompra(vezUsu){
+if(vezUsu == false){
+    
+}
+}
+
